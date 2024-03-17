@@ -1,0 +1,6 @@
+.carousel-indicators [data-bs-target] {
+  width: 15px !important;
+  height: 5px !important;
+  border: 1px solid transparent !important;
+  border-radius: 10px;
+}

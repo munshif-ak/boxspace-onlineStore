@@ -1,0 +1,26 @@
+.on-boarding{
+       width: 100vw;
+       height: 100vh;
+       /* background-color: aqua; */
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+}
+
+.getStarted-button{
+       width: 135px;
+       height: 43px;
+       border: 1px solid darkslateblue !important;
+       outline: none;
+       border-radius: 30px !important;
+      background-color : darkslateblue !important;
+       align-self: flex-end;
+       cursor: pointer !important;
+       margin-right: 45px !important;
+       margin-top: 15px !important;
+}
+
+/* .shoplogo{
+       align-self: flex-start;
+} */

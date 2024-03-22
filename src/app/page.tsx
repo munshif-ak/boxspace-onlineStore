@@ -10,7 +10,7 @@ export default function GetStarted() {
   return (
     <div className="on-boarding">
       <CarouselSlide/>
-      <Button className="getStarted-button" variant="contained">Get Started</Button>
+      <Button href="/login" className="getStarted-button" variant="contained">Get Started</Button>
     </div>
   );
 }

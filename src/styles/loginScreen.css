@@ -1,0 +1,30 @@
+.login-heading {
+  color: grey;
+  font-weight: 500;
+}
+
+.login-maicontainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-textField {
+  width: 350px;
+  margin-top: 10px;
+}
+
+.login-button {
+  height: 45px;
+  background-color: darkslateblue !important;
+  font-weight: 500;
+  margin-top: 10px;
+}

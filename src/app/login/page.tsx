@@ -1,18 +1,38 @@
-'use client'
-import React from 'react';
-import { Button, Carousel } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+"use client";
+import React from "react";
+import "../../styles/loginScreen.css";
+import { Button, TextField } from "@mui/material";
 
 function Login() {
   return (
-    <div>
-      <h2>login page</h2>
-      <img alt="My Image" src="../../logo/shopLogo1.jpg" />
-      {/* <img src='https://elements-cover-images-0.imgix.net/cfe8e230-cbb1-4530-921c-e38f3fb199eb?auto=compress%2Cformat&w=1370&fit=max&s=ba92479ba6d37fc09db51fa3a9288224' alt="Image 1" />
-      <img src='https://static.vecteezy.com/system/resources/previews/002/692/942/non_2x/add-to-cart-illustration-that-contain-list-products-pictures-of-cart-and-shopping-items-vector.jpg' alt="Image 2" />
-      <img src='https://media.istockphoto.com/id/1578046164/vector/pay-outstanding-dues-online-credit-card-bill-payment-successfully-rewards-and-benefits-on.webp?s=2048x2048&w=is&k=20&c=43ZUazYhRrzDoDLvwevMrtcrYy2hrg3YbN8QOa9IvXc=' alt="Image 3" />
-          */}
-  
+    <div className="login-maicontainer">
+      <h1 style={{ fontWeight: "700" }}>Login</h1>
+      <span className="login-heading">
+        See your growth and get consulting support!
+      </span>
+      <img
+        style={{ marginTop: "50px" }}
+        src="https://technosavys.org/images/new-images/login-graphic.svg"
+        width={300}
+        height={300}
+      />
+      <div className="login-container1">
+        <TextField
+          className="login-textField"
+          id="outlined-basic"
+          label="Email adress"
+          variant="outlined"
+        />
+        <TextField
+          className="login-textField"
+          id="outlined-basic"
+          label="Password"
+          variant="outlined"
+        />
+        <Button className="login-button" variant="contained" style={{ backgroundColor: 'transparent' }}>
+          Login
+        </Button>
+      </div>
     </div>
   );
 }

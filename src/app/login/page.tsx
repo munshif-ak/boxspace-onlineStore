@@ -1,12 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import "../../styles/loginScreen.css";
-import { Button, TextField } from "@mui/material";
-import { json } from "stream/consumers";
+import { Alert, Button, TextField } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [open, setOpen] = React.useState<boolean>(false);
 
   const handleEmailChange = (event: any) => {
     setEmail(event.target.value);
@@ -15,20 +17,50 @@ function Login() {
     setPassword(event?.target.value);
   };
 
-   async function clickLogin() {
-    const response = await fetch("https://fakestoreapi.com/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        username: email,
-        password: Password,
-      }),
-    });
-    const data = await response.json();
-    console.log('@@@@',data)
+  const handleClick = () => {
+    setOpen(true);
   };
+
+  const handleClose = (
+    event: React.SyntheticEvent | MouseEvent,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  async function clickLogin() {
+    try {
+      const response = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          username: email,
+          password: Password,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to login");
+      }
+
+      const data = await response.json();
+
+      if (data.token) {
+        router.push("/Home");
+      } else {
+        console.log("@@@@@@@");
+        alert("invalid username or password");
+      }
+    } catch (error) {
+      handleClick();
+    }
+  }
 
   return (
     <div className="login-maicontainer">
@@ -42,6 +74,15 @@ function Login() {
         width={300}
         height={300}
       />
+
+      {open ? (
+        <Alert onClose={handleClose} className="alert-login" severity="error">
+          invalid userName & password
+        </Alert>
+      ) : (
+        <></>
+      )}
+
       <div className="login-container1">
         <TextField
           className="login-textField"
@@ -58,7 +99,7 @@ function Login() {
           onChange={handlePasswordChange}
         />
         <Button
-        onClick={clickLogin}
+          onClick={clickLogin}
           className="login-button"
           variant="contained"
           style={{ backgroundColor: "transparent" }}

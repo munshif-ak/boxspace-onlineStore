@@ -28,3 +28,9 @@
   font-weight: 500;
   margin-top: 10px;
 }
+
+.alert-login{
+  width: 317px;
+  height: 30px;
+  display: flex;
+  align-items: center;}
